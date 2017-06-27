@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source "$CURRENT_DIR/scripts/helpers.sh"
 
 _interpolation=(
 	"\#{pacmux_overview}"
@@ -15,25 +16,6 @@ _commands=(
 	"#[fg=yellow,nobold]ᗧ#[fg=default]"
 )
 
-set_tmux_option() {
-	local command=$1
-	local option=$2
-	local value=$3
-	tmux "$command" -gq "$option" "$value"
-}
-
-get_tmux_option() {
-	local command=$1
-	local option=$2
-	local default_value=$3
-	local option_value="$(tmux "$command" -gv "$option")"
-	if [ -z "$option_value" ]; then
-		echo "$default_value"
-	else
-		echo "$option_value"
-	fi
-}
-
 do_interpolation() {
 	local all_interpolated="$1"
 	for ((i=0; i<${#_commands[@]}; i++)); do
@@ -44,16 +26,16 @@ do_interpolation() {
 
 update_tmux_option() {
 	local option=$1
-	local option_value=$(get_tmux_option "show-option" "$option")
+	local option_value=$(get_tmux_option "$option")
 	local new_option_value=$(do_interpolation "$option_value")
-	set_tmux_option "set-option" "$option" "$new_option_value"
+	set_tmux_option "$option" "$new_option_value"
 }
 
 update_tmux_window_option() {
 	local option=$1
-	local option_value=$(get_tmux_option "show-window-option" "$option")
+	local option_value=$(get_tmux_window_option "$option")
 	local new_option_value=$(do_interpolation "$option_value")
-	set_tmux_option "set-window-option" "$option" "$new_option_value"
+	set_tmux_window_option "$option" "$new_option_value"
 }
 
 main() {
