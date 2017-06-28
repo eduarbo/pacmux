@@ -29,12 +29,12 @@ Reload TMUX environment:
     # type this in terminal
     $ tmux source-file ~/.tmux.conf
 
-Now, you should now be able to use the new format strings.
+Now, you should be able to use the new format strings.
 
 
 ## Usage
 
-This plugin enables 4 new format strings to give your status line a Pac-Man look.
+This plugin enables 4 new format strings to give your status line a `Pᗣᗧ·•·MᗣN` look.
 All of them are available for the Tmux options `status-left`, `status-right`,
 `window-status-format` and `window-status-current-format`.
 
@@ -45,8 +45,8 @@ to represent the window flag with a symbol.
 
 ### Destructuring symbols
 - `ᗧ` Pac-man represents the active window
-- `•` Pac-Dot represents a quiet window
-- `·` Power Pellet represents a window with activity
+- `·` Pac-Dot represents a quiet window
+- `•` Power Pellet represents a window with activity
 - `ᗣ` Blue Ghost represents a window with bell
 
 `#{pacmux_sessions}` and `#{pacmux_overview}` are meant to be used either in
@@ -57,7 +57,7 @@ or Clyde. The ghost representing the current session will be followed by the
 session name.
 
 `#{pacmux_overview}` will give you and overview of the attached sessions and
-session windows in a Pac-Man style.
+session windows in a `Pᗣᗧ·•·MᗣN` style.
 
 `#{pacmux_pacman}` just prints the Pac-Man-like character `ᗧ` in yellow. Useful
 for `window-status-format` tmux option.
