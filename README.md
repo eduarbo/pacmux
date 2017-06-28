@@ -1,6 +1,6 @@
 # Pacmux
 
-<img src="screenshot.png" alt="Preview" width="769" />
+<img src="preview.png" alt="Preview" width="769" />
 
 Enables new format strings to allow your Tmux status line to look like `Pᗣᗧ·•·MᗣN`
  
