@@ -10,7 +10,7 @@ _interpolation=(
 	"\#{pacmux_pacman}"
 )
 _commands=(
-	"#($CURRENT_DIR/scripts/pacmux_overview.sh #{session_id} #{window_id})"
+	"#($CURRENT_DIR/scripts/pacmux_overview.sh #{session_alerts} #{window_id})"
 	"#($CURRENT_DIR/scripts/pacmux_sessions.sh #{session_id})"
 	"$(window_flag)"
 	"$(pacman)"
