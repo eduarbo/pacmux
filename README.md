@@ -44,7 +44,7 @@ All of them are available for the Tmux options `status-left`, `status-right`,
 to represent the window flag with a symbol.
 
 ### Destructuring symbols
-- `ᗧ` Pac-man represents the active window
+- `ᗧ` Pac-Man represents the active window
 - `·` Pac-Dot represents a quiet window
 - `•` Power Pellet represents a window with activity
 - `ᗣ` Blue Ghost represents a window with bell
