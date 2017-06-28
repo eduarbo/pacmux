@@ -64,6 +64,25 @@ session windows in a `Pᗣᗧ·•·MᗣN` style.
 `#{pacmux_pacman}` just prints the Pac-Man-like character `ᗧ` in yellow. Useful
 for `window-status-format` tmux option.
 
+### Example of usage
+
+To have the same structure as the preview, add the following to `tmux.conf`:
+
+    # Style for session name and zoom icon
+    set -g status-left-style fg=brightwhite,bold
+    set -g status-left '#{?window_zoomed_flag,  ,}#{pacmux_sessions} '
+
+    set -g status-right '#{pacmux_overview}'
+
+    set -g window-status-separator ' '
+    set -g window-status-style fg=brightblack,bold,bg=black
+    set -g window-status-last-style default
+    set -g window-status-activity-style default
+    set -g window-status-bell-style default
+    set -g window-status-format '#{pacmux_window_flag} #I#[none,fg=brightblack]/#W'
+
+    set -g window-status-current-style fg=white,bold,bg=black
+    set -g window-status-current-format '#{pacmux_pacman} #I#[none,fg=white]/#W'
 
 ## Changing defaults
 
