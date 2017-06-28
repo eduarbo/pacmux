@@ -54,12 +54,12 @@ to represent the window flag with a symbol.
 `#{pacmux_sessions}` and `#{pacmux_overview}` are meant to be used either in
 `status-left` or `status-right` tmux option.
 
-`#{pacmux_sessions}` will represent each attached session as Blinky, Pinky, Inky
-or Clyde. The ghost representing the current session will be followed by the
+`#{pacmux_sessions}` will represent each session as Blinky, Pinky, Inky or
+Clyde. The ghost representing the current session will be followed by the
 session name.
 
-`#{pacmux_overview}` will give you and overview of the attached sessions and
-session windows in a `Pᗣᗧ·•·MᗣN` style.
+`#{pacmux_overview}` will give you and overview of the sessions and windows of
+the attached session in a `Pᗣᗧ·•·MᗣN` style.
 
 `#{pacmux_pacman}` just prints the Pac-Man-like character `ᗧ` in yellow. Useful
 for `window-status-format` tmux option.
