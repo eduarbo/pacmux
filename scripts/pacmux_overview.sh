@@ -7,17 +7,17 @@ pacmux_overview(){
   i=1
   while IFS= read -r session; do
     case "$session" in
-      1) printf "%s ᗣ#[fg=default]  " "$(ghost $i)"
-         while IFS= read -r window; do
-           case "$window" in
-             1) printf "#[fg=yellow,nobold]ᗧ#[fg=default]";;
-             2) printf "#[fg=blue,nobold]ᗣ #[fg=default]";;
+      1) printf " %s  " "$(ghost $i)"
+         while IFS= read -r symbol; do
+           case "$symbol" in
+             1) pacman;;
+             2) blue_ghost;;
              3) printf "•";;
              *) printf "·";;
            esac
-         done <<< "$(tmux list-windows -F '#{?window_active,1,#{?window_bell_flag,2,#{?window_activity_flag,3,0}}}')"
+         done <<< "$(tmux list-windows -F '#{?window_active,1,#{?window_last_flag,2,#{?window_activity_flag,3,0}}}')"
          ;;
-      *) printf "%s ᗣ" "$(ghost $i)";;
+      *) printf " %s" "$(ghost $i)";;
     esac
     i=$(($i+1))
   done <<< "$(tmux list-sessions -F '#{session_attached}')"

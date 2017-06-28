@@ -12,8 +12,8 @@ _interpolation=(
 _commands=(
 	"#($CURRENT_DIR/scripts/pacmux_overview.sh #{session_id} #{window_id})"
 	"#($CURRENT_DIR/scripts/pacmux_sessions.sh #{session_id})"
-	"#[fg=white,nobold]#{?window_activity_flag,•,#{?window_bell_flag,#[fg=blue]ᗣ #[fg=white],·}}#[fg=default]"
-	"#[fg=yellow,nobold]ᗧ#[fg=default]"
+	"$(status)"
+	"$(pacman)"
 )
 
 do_interpolation() {

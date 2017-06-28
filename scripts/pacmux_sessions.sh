@@ -7,8 +7,8 @@ pacmux_sessions(){
   i=1
   while IFS= read -r session; do
     case "$session" in
-      1) printf "%sᗣ #[fg=default,bold]#{session_name} " "$(ghost $i)";;
-      *) printf "%sᗣ " "$(ghost $i)";;
+      1) printf "%s #{session_name} " "$(ghost $i)";;
+      *) printf "%s " "$(ghost $i)";;
     esac
     i=$(($i+1))
   done <<< "$(tmux list-sessions -F '#{session_attached}')"
