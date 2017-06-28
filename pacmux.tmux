@@ -6,13 +6,13 @@ source "$CURRENT_DIR/scripts/helpers.sh"
 _interpolation=(
 	"\#{pacmux_overview}"
 	"\#{pacmux_sessions}"
-	"\#{pacmux_status}"
+	"\#{pacmux_window_flag}"
 	"\#{pacmux_pacman}"
 )
 _commands=(
 	"#($CURRENT_DIR/scripts/pacmux_overview.sh #{session_id} #{window_id})"
 	"#($CURRENT_DIR/scripts/pacmux_sessions.sh #{session_id})"
-	"$(status)"
+	"$(window_flag)"
 	"$(pacman)"
 )
 

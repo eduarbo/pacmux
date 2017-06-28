@@ -27,28 +27,28 @@ get_tmux_window_option() {
   get_tmux_option "$1" "$2" "w"
 }
 
-blue_ghost_style=$(get_tmux_option "@pacmux-blue-ghost-style" "none,fg=blue")
-pacman_style=$(get_tmux_option "@pacmux-pacman-style" "none,fg=yellow")
-dots_style=$(get_tmux_option "@dots-style" "none,fg=white")
+blue_ghost_style=$(get_tmux_option "@pacmux-blue-ghost-style" "fg=blue")
+pacman_style=$(get_tmux_option "@pacmux-pacman-style" "fg=yellow")
+dots_style=$(get_tmux_option "@pacmux-dots-style" "fg=white")
 
 pacman(){
-  printf "#[%s]ᗧ#[default]" "$pacman_style"
+  printf "#[none]#[%s]ᗧ#[default]" "$pacman_style"
 }
 
 blue_ghost(){
-  printf "#[%s]ᗣ #[default]" "$blue_ghost_style"
+  printf "#[none]#[%s]ᗣ #[default]" "$blue_ghost_style"
 }
 
-status(){
-	printf "#[%s]#{?window_last_flag,,#[%s]}#{?window_activity_flag,•,#{?window_last_flag,ᗣ,·}}#[default]" "$blue_ghost_style" "$dots_style"
+window_flag(){
+	printf "#[none]#[%s]#{?window_bell_flag,,#[none]#[%s]}#{?window_bell_flag,ᗣ,#{?window_activity_flag,•,·}}#[default]" "$blue_ghost_style" "$dots_style"
 }
 
 ghost(){
   styles=(
-    $(get_tmux_option "@blinky-style" "none,fg=red")
-    $(get_tmux_option "@pinky-style" "none,fg=brightmagenta")
-    $(get_tmux_option "@inky-style" "none,fg=brightcyan")
-    $(get_tmux_option "@clyde-style" "none,fg=yellow")
+    $(get_tmux_option "@pacmux-blinky-style" "fg=red")
+    $(get_tmux_option "@pacmux-pinky-style" "fg=brightmagenta")
+    $(get_tmux_option "@pacmux-inky-style" "fg=brightcyan")
+    $(get_tmux_option "@pacmux-clyde-style" "fg=yellow")
   )
-  printf "%sᗣ#[default]" "#[${styles[$1 % 4]}]"
+  printf "#[none]#[%s]ᗣ#[default]" "${styles[$1 % 4]}"
 }

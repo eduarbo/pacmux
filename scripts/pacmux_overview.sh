@@ -12,10 +12,10 @@ pacmux_overview(){
            case "$symbol" in
              1) pacman;;
              2) blue_ghost;;
-             3) printf "•";;
-             *) printf "·";;
+             3) printf "#[none]#[%s]•" "$dots_style";;
+             *) printf "#[none]#[%s]·" "$dots_style";;
            esac
-         done <<< "$(tmux list-windows -F '#{?window_active,1,#{?window_last_flag,2,#{?window_activity_flag,3,0}}}')"
+         done <<< "$(tmux list-windows -F '#{?window_active,1,#{?window_bell_flag,2,#{?window_activity_flag,3,0}}}')"
          ;;
       *) printf " %s" "$(ghost $i)";;
     esac
