@@ -1,4 +1,4 @@
-Copyright 2017 Eduardo Ruiz Macias
+Copyright 2017-2026 Eduardo Ruiz Macias
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
